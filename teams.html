@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khusi Clinic | Teams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <p>Open daily: 7:00 AM - 9:00 PM | Connect directly on WhatsApp</p>
+    <a class="top-btn" href="https://wa.me/9779761279899?text=Hello%20Khusi%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noreferrer">Book on WhatsApp</a>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html"><img src="img/logo.svg" alt="Khusi Clinic logo" class="logo">Khusi Clinic</a>
+      <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+      <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="teams.html" class="active">Teams</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section">
+      <div class="container anim-up">
+        <p class="eyebrow">Meet the team</p>
+        <h1 class="section-title">Healthcare professionals here for you</h1>
+        <p class="section-subtitle">Our team brings together general physicians, pediatric specialists, lab experts and patient support staff to ensure a connected experience.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container anim-up">
+        <div class="team-grid" role="list">
+          <div class="team-row team-row-top">
+            <article class="team-card" data-index="0">
+              <img src="https://via.placeholder.com/420x420?text=Photo" alt="Mr. Leela Bahadur Dhakal" width="420" height="420" />
+              <span class="tag">Pharmacist, Founder, MD</span>
+              <h3>Mr. Leela Bahadur Dhakal</h3>
+              <p>Founder of Khusi Pharmacy & Clinic and a licensed pharmacist with over 15 years of experience dedicated to providing quality healthcare and pharmaceutical services to the community.</p>
+              <small>Available Sun-Fri 5:00PM - 6:00PM</small>
+              <button class="view-profile" data-index="0">View profile</button>
+            </article>
+
+            <article class="team-card" data-index="1">
+              <img src="img/RADHIKADHAK.jpeg" alt="Mrs. Radhika Dhakal" width="420" height="420" />
+              <span class="tag">Co-Founder, Staff Nurse</span>
+              <h3>Mrs. Radhika Dhakal</h3>
+              <p>Experienced nurse with a background in both private and government healthcare institutions, committed to delivering compassionate patient care and supporting women's health services.</p>
+              <small>Available Sun-Fri 5:00PM - 6:00PM</small>
+              <button class="view-profile" data-index="1">View profile</button>
+            </article>
+          </div>
+
+          <div class="team-row team-row-bottom">
+            <article class="team-card" data-index="2">
+              <img src="img/Dr.deepak.jpeg" alt="Dr. Deepak Kumar Singh" width="420" height="420" />
+              <span class="tag">General Physician</span>
+              <h3>Dr. Deepak Kumar Singh</h3>
+              <p>Experienced general physician providing comprehensive medical care for patients of all ages with a focus on accurate diagnosis and effective treatment.</p>
+              <small>Available Sun-Fri 5:00PM - 6:00PM</small>
+              <button class="view-profile" data-index="2">View profile</button>
+            </article>
+
+            <article class="team-card" data-index="3">
+              <img src="https://via.placeholder.com/420x420?text=Photo" alt="Dr. Madhusudhan Kayastha" width="420" height="420" />
+              <span class="tag">Pediatrician</span>
+              <h3>Dr. Madhusudhan Kayastha</h3>
+              <p>Experienced pediatric specialist committed to the health and well-being of infants, children, and adolescents through compassionate and professional care.</p>
+              <small>Available Sun-Fri 9:00AM - 10:00AM</small>
+              <button class="view-profile" data-index="3">View profile</button>
+            </article>
+
+            <article class="team-card" data-index="4">
+              <img src="img/sushmita shahi.jpeg" alt="Ms. Sushmita Shahi" width="420" height="420" />
+              <span class="tag">Laboratory</span>
+              <h3>Ms. Sushmita Shahi</h3>
+              <p>Licensed laboratory professional providing accurate diagnostic services and supporting quality healthcare through reliable laboratory testing.</p>
+              <small>Morning 7:00AM - 12:00PM<br>Evening 5:00PM - 6:30PM</small>
+              <button class="view-profile" data-index="4">View profile</button>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container anim-up section-highlight" style="margin-top: 40px;">
+        <article class="highlight-card">
+          <strong>Highly qualified</strong>
+          <span>Each team member offers specialized training and years of hands-on clinic experience.</span>
+        </article>
+        <article class="highlight-card">
+          <strong>Coordinated care</strong>
+          <span>Our clinicians and lab staff work together to deliver smooth appointments and follow-up.</span>
+        </article>
+        <article class="highlight-card">
+          <strong>Patient-centered</strong>
+          <span>We focus on clear explanations, gentle care, and practical next steps for every visitor.</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Member modal -->
+    <div id="memberModal" class="member-modal" aria-hidden="true">
+      <div class="member-modal-backdrop" data-modal-close></div>
+      <div class="member-modal-panel" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
+        <button class="modal-close" aria-label="Close" data-modal-close>✕</button>
+        <div class="member-modal-body">
+          <img src="https://via.placeholder.com/420x420?text=Photo" alt="Member photo" class="member-modal-photo" width="420" height="420">
+          <div class="member-modal-info">
+            <h3 id="memberModalTitle">Name</h3>
+            <span class="tag">Role</span>
+            <p class="member-modal-desc">Detailed bio and information about the member will appear here.</p>
+            <small class="member-modal-availability">Availability details</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid anim-up">
+      <div class="footer-brand">
+        <h2>Khusi Clinic</h2>
+        <p>Expert care delivered by a friendly, experienced clinic team.</p>
+      </div>
+      <div class="footer-quick">
+        <p><strong>Quick links</strong></p>
+        <p><a href="home.html">Home</a> · <a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a> · <a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-contact">
+        <p><strong>Contact</strong></p>
+        <p>Phone: <a href="tel:+9779767223226">+977 9767223226</a></p>
+        <p>Email: <a href="mailto:info@khusiclinic.com">info@khusiclinic.com</a></p>
+        <p>Address: Kharibot, Kapan, Kathmandu</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 Khusi Clinic. All rights reserved.</div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
