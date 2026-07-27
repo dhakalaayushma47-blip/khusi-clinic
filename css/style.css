@@ -19,8 +19,10 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  background: radial-gradient(circle at top, rgba(14,165,255,0.12), transparent 28%),
+    linear-gradient(180deg, #f6fbff 0%, var(--bg) 100%);
   color: var(--text);
+  min-height: 100vh;
 }
 img {
   max-width: 100%;
@@ -63,16 +65,20 @@ button {
 }
 .top-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 14px;
   padding: 12px 20px;
-  background: linear-gradient(90deg, rgba(14,165,255,0.12), rgba(6,182,212,0.06));
+  background: rgba(14, 165, 255, 0.08);
+  border-bottom: 1px solid rgba(14, 165, 255, 0.12);
   color: var(--text);
   font-size: 0.95rem;
 }
 .top-bar p {
   margin: 0;
+  text-align: center;
+  color: var(--text);
+  font-weight: 500;
 }
 .top-btn {
   padding: 10px 16px;
@@ -88,16 +94,17 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255,255,255,0.9);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: 0 6px 20px rgba(12, 31, 56, 0.04);
+  background: rgba(255,255,255,0.94);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(12, 31, 56, 0.08);
 }
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  padding: 20px 0;
+  padding: 18px 0;
 }
 .brand {
   display: inline-flex;
@@ -136,9 +143,19 @@ button {
 }
 .hero {
   position: relative;
-  padding: 72px 0 40px;
+  padding: 72px 0 48px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(14,165,255,0.18), transparent 24%),
+              radial-gradient(circle at 80% 10%, rgba(6,182,212,0.14), transparent 18%);
+  pointer-events: none;
 }
 .hero-grid {
+  position: relative;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
@@ -146,6 +163,8 @@ button {
 }
 .hero-copy {
   max-width: 620px;
+  position: relative;
+  z-index: 1;
 }
 .eyebrow {
   display: inline-flex;
@@ -187,7 +206,7 @@ button {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 .btn:hover {
   transform: translateY(-2px);
@@ -195,7 +214,11 @@ button {
 }
 .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text);
+}
+.btn-chat {
+  min-width: 240px;
 }
 .hero-slider {
   position: relative;
@@ -244,6 +267,7 @@ button {
   width: min(100%, 420px);
   transform: translateY(0);
   border-radius: 12px;
+  animation: float 10s ease-in-out infinite alternate;
 }
 .slider-controls {
   display: flex;
@@ -287,6 +311,36 @@ button {
   margin: 0 0 36px;
   color: var(--muted);
   max-width: 680px;
+  line-height: 1.8;
+}
+.section-highlight {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.highlight-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82));
+  border: 1px solid rgba(10, 25, 42, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 26px;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(14, 111, 255, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 45px rgba(14, 111, 255, 0.12);
+}
+.highlight-card strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.highlight-card span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
   line-height: 1.8;
 }
 .grid {
@@ -370,40 +424,44 @@ button {
 .service-card {
   background: var(--surface);
   border: 1px solid rgba(10, 25, 42, 0.06);
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 18px 40px rgba(9, 43, 84, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  display: grid;
+  gap: 18px;
 }
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 26px 55px rgba(9, 43, 84, 0.14);
+  border-color: rgba(14, 165, 255, 0.28);
 }
 .service-card img {
-  height: 180px;
+  height: 220px;
   object-fit: cover;
-  margin-bottom: 16px;
+  border-radius: 18px;
+  width: 100%;
 }
 .service-card h3 {
   margin: 0 0 10px;
-  font-size: 1.2rem;
+  font-size: 1.28rem;
 }
 .service-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .service-card .tag,
 .team-card .tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
+  padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(14, 165, 255, 0.1);
   color: var(--accent);
   font-size: 0.9rem;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .service-card ul {
   margin: 18px 0 0;
@@ -596,12 +654,12 @@ button {
 }
 .footer {
   padding: 48px 0 32px;
-  background: transparent;
+  background: linear-gradient(180deg, rgba(7, 20, 40, 0.02), rgba(243, 247, 251, 0.98));
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 24px;
 }
 .footer-brand h2 { margin: 0 0 12px; color: var(--text); }
 .footer-brand p,
@@ -610,6 +668,39 @@ button {
 .footer-contact a { margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
 .footer-contact a { display: inline-block; }
 .footer-bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(10,25,42,0.04); color: var(--muted); font-size: 0.92rem; }
+.footer-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 32px 0 14px;
+  margin-top: 24px;
+  border-top: 1px solid rgba(10, 25, 42, 0.06);
+}
+.footer-cta-copy {
+  max-width: 760px;
+}
+.footer-cta-copy .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(14,165,255,0.08);
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.footer-cta-copy h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 1.7rem);
+  line-height: 1.4;
+}
+.footer-cta .btn-chat {
+  background: #25d366;
+}
+
 .anim-up {
   opacity: 0;
   transform: translateY(20px);
@@ -783,27 +874,31 @@ button {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .team-card {
-  padding: 18px;
+  padding: 20px;
   display: grid;
-  gap: 12px;
+  gap: 14px;
   align-items: start;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(10, 25, 42, 0.07);
+  box-shadow: 0 20px 45px rgba(10,25,42,0.06);
 }
 .team-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(10,25,42,0.12);
+  transform: translateY(-7px);
+  box-shadow: 0 28px 55px rgba(10,25,42,0.12);
 }
 .team-card img {
   width: 100%;
-  height: 260px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 18px;
 }
 .view-profile {
   margin-top: 8px;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 999px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: #fff;
   border: none;
@@ -812,7 +907,7 @@ button {
 }
 .view-profile:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(14,165,255,0.18);
+  box-shadow: 0 14px 30px rgba(14,165,255,0.2);
 }
 
 /* Modal */
@@ -925,6 +1020,15 @@ button {
     grid-template-columns: 1fr;
   }
   .team-spotlight-shell { padding: 18px; }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-12px);
+  }
 }
 
 .whatsapp-chatbot {
