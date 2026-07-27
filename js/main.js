@@ -110,9 +110,23 @@ if (contactForm) {
   const messageEl = document.querySelector('.form-message');
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    messageEl.textContent = 'Thank you! Your appointment request is ready for review. We will reach out shortly.';
+    // Collect form values and open WhatsApp chat with a prefilled message
+    const name = encodeURIComponent(document.getElementById('name')?.value || '');
+    const email = encodeURIComponent(document.getElementById('email')?.value || '');
+    const phone = encodeURIComponent(document.getElementById('phone')?.value || '');
+    const msg = encodeURIComponent(document.getElementById('message')?.value || '');
+    const prefilled = `Hello Khusi Clinic,%0A%0AI have an appointment request.%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ARequest: ${msg}`;
+    const waUrl = `https://wa.me/9779761279899?text=${prefilled}`;
+
+    // Open WhatsApp (web or app) in new tab/window
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+    // Show user-friendly confirmation on the page
+    messageEl.textContent = 'Opening WhatsApp so you can send the request. If WhatsApp does not open, please use our chat button.';
     messageEl.classList.add('visible');
-    setTimeout(() => messageEl.classList.remove('visible'), 5000);
+    setTimeout(() => messageEl.classList.remove('visible'), 7000);
+
+    // Reset the form
     contactForm.reset();
   });
 }
