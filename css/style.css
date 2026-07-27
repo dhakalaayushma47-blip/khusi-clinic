@@ -217,9 +217,6 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--text);
 }
-.btn-chat {
-  min-width: 240px;
-}
 .hero-slider {
   position: relative;
   min-height: 420px;
@@ -668,38 +665,7 @@ button {
 .footer-contact a { margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
 .footer-contact a { display: inline-block; }
 .footer-bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(10,25,42,0.04); color: var(--muted); font-size: 0.92rem; }
-.footer-cta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  padding: 32px 0 14px;
-  margin-top: 24px;
-  border-top: 1px solid rgba(10, 25, 42, 0.06);
-}
-.footer-cta-copy {
-  max-width: 760px;
-}
-.footer-cta-copy .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(14,165,255,0.08);
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.footer-cta-copy h3 {
-  margin: 0;
-  font-size: clamp(1.4rem, 2vw, 1.7rem);
-  line-height: 1.4;
-}
-.footer-cta .btn-chat {
-  background: #25d366;
-}
+
 
 .anim-up {
   opacity: 0;
