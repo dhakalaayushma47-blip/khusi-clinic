@@ -88,6 +88,250 @@ if (navToggle) {
   });
 }
 
+const labSearch = document.getElementById('labSearch');
+if (labSearch) {
+  const cards = Array.from(document.querySelectorAll('.category-card'));
+  labSearch.addEventListener('input', (event) => {
+    const query = event.target.value.trim().toLowerCase();
+
+    cards.forEach((card) => {
+      const text = card.textContent.toLowerCase();
+      const visible = text.includes(query);
+      card.classList.toggle('is-hidden', !visible);
+    });
+  });
+}
+
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach((item) => {
+  const button = item.querySelector('.faq-question');
+  if (!button) return;
+  button.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    faqItems.forEach((entry) => entry.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+const statValues = document.querySelectorAll('.stat-card strong[data-count]');
+if (statValues.length) {
+  const animateStats = () => {
+    statValues.forEach((valueElement) => {
+      const target = Number(valueElement.dataset.count || 0);
+      const duration = 1200;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * eased);
+        valueElement.textContent = `${current}${target === 65 ? '+' : target === 5000 ? '+' : ''}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          valueElement.textContent = `${target}${target === 65 ? '+' : target === 5000 ? '+' : ''}`;
+        }
+      };
+
+      requestAnimationFrame(step);
+    });
+  };
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateStats();
+        statObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  const statsSection = document.querySelector('.stats-grid');
+  if (statsSection) statObserver.observe(statsSection);
+}
+
+/* Team Carousel Slideshow */
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const carouselDots = document.querySelectorAll('.carousel-dot');
+const carouselPrevBtn = document.querySelector('.carousel-prev');
+const carouselNextBtn = document.querySelector('.carousel-next');
+let currentCarouselSlide = 0;
+const totalCarouselSlides = carouselSlides.length;
+
+function setCarouselSlide(index) {
+  currentCarouselSlide = index < 0 ? totalCarouselSlides - 1 : index >= totalCarouselSlides ? 0 : index;
+  carouselSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle('active', slideIndex === currentCarouselSlide);
+  });
+  carouselDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle('active', dotIndex === currentCarouselSlide);
+  });
+}
+
+function nextCarouselSlide() {
+  setCarouselSlide(currentCarouselSlide + 1);
+}
+
+function previousCarouselSlide() {
+  setCarouselSlide(currentCarouselSlide - 1);
+}
+
+if (carouselSlides.length) {
+  carouselDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => setCarouselSlide(index));
+  });
+
+  if (carouselNextBtn) {
+    carouselNextBtn.addEventListener('click', nextCarouselSlide);
+  }
+
+  if (carouselPrevBtn) {
+    carouselPrevBtn.addEventListener('click', previousCarouselSlide);
+  }
+}
+
+/* Member Modal and Profile Viewing */
+const memberModal = document.getElementById('memberModal');
+const viewProfileBtns = document.querySelectorAll('.view-profile, .btn-view-profile');
+const modalCloseBtns = document.querySelectorAll('[data-modal-close]');
+const memberCardCarousels = document.querySelectorAll('.team-card-carousel');
+
+const teamMembersData = {
+  0: {
+    name: 'Mr. Leela Bahadur Dhakal',
+    role: 'Pharmacist, Founder, MD',
+    desc: 'Founder of Khusi Pharmacy & Clinic and a licensed pharmacist with over 15 years of experience dedicated to providing quality healthcare and pharmaceutical services to the community.',
+    availability: 'Sun-Fri 5:00PM - 6:00PM',
+    focus: 'Pharmacy Management & Clinical Care',
+    image: 'img/Dad pic.jpeg'
+  },
+  1: {
+    name: 'Mrs. Radhika Dhakal',
+    role: 'Co-Founder, Staff Nurse',
+    desc: 'Experienced nurse with a background in both private and government healthcare institutions, committed to delivering compassionate patient care and supporting women\'s health services.',
+    availability: 'Sun-Fri 5:00PM - 6:00PM',
+    focus: 'Patient Care & Women\'s Health',
+    image: 'img/RADHIKADHAK.jpeg'
+  },
+  2: {
+    name: 'Dr. Deepak Kumar Singh',
+    role: 'General Physician',
+    desc: 'Experienced general physician providing comprehensive medical care for patients of all ages with a focus on accurate diagnosis and effective treatment.',
+    availability: 'Sun-Fri 5:00PM - 6:00PM',
+    focus: 'General Medicine & Diagnosis',
+    image: 'img/Dr.deepak.jpeg'
+  },
+  3: {
+    name: 'Dr. Madhusudhan Kayastha',
+    role: 'Pediatrician',
+    desc: 'Experienced pediatric specialist committed to the health and well-being of infants, children, and adolescents through compassionate and professional care.',
+    availability: 'Sun-Fri 9:00AM - 10:00AM',
+    focus: 'Pediatric Care & Child Health',
+    image: 'img/madhusudhankayastha.jpeg'
+  },
+  4: {
+    name: 'Ms. Sushmita Shahi',
+    role: 'Laboratory Professional',
+    desc: 'Licensed laboratory professional providing accurate diagnostic services and supporting quality healthcare through reliable laboratory testing.',
+    availability: 'Morning 7:00AM - 12:00PM | Evening 5:00PM - 6:30PM',
+    focus: 'Diagnostic Testing & Analysis',
+    image: 'img/sushmita shahi.jpeg'
+  }
+};
+
+function openMemberModal(memberIndex) {
+  const member = teamMembersData[memberIndex];
+  if (!member || !memberModal) return;
+
+  const modal = memberModal;
+  modal.querySelector('.member-modal-photo').src = member.image;
+  modal.querySelector('.member-modal-photo').alt = member.name;
+  modal.querySelector('#memberModalTitle').textContent = member.name;
+  modal.querySelector('.member-modal-role').textContent = member.role;
+  modal.querySelector('.member-modal-desc').textContent = member.desc;
+  modal.querySelector('.member-modal-availability').textContent = member.availability;
+  modal.querySelector('.member-modal-focus').textContent = member.focus;
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  // Add 3D parallax effect on mouse move
+  const panel = modal.querySelector('.member-modal-panel');
+  const handleMouseMove = (e) => {
+    if (!modal.classList.contains('open')) return;
+    
+    const rect = panel.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    const rotateX = (e.clientY - centerY) * 0.01;
+    const rotateY = (centerX - e.clientX) * 0.01;
+    
+    panel.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+  };
+
+  const handleMouseLeave = () => {
+    panel.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale(1)';
+  };
+
+  document.addEventListener('mousemove', handleMouseMove);
+  modal.addEventListener('mouseleave', handleMouseLeave);
+
+  // Store listeners for cleanup
+  modal._mouseMove = handleMouseMove;
+  modal._mouseLeave = handleMouseLeave;
+}
+
+function closeMemberModal() {
+  if (memberModal) {
+    const panel = memberModal.querySelector('.member-modal-panel');
+    
+    // Remove parallax listeners
+    if (memberModal._mouseMove) {
+      document.removeEventListener('mousemove', memberModal._mouseMove);
+      memberModal.removeEventListener('mouseleave', memberModal._mouseLeave);
+    }
+    
+    // Add closing animation
+    panel.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    panel.style.transform = 'perspective(1200px) scale(0.85) rotateX(10deg)';
+    
+    setTimeout(() => {
+      memberModal.classList.remove('open');
+      memberModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      panel.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    }, 200);
+  }
+}
+
+viewProfileBtns.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const index = btn.getAttribute('data-index');
+    if (index !== null) {
+      openMemberModal(parseInt(index));
+    }
+  });
+});
+
+modalCloseBtns.forEach((btn) => {
+  btn.addEventListener('click', closeMemberModal);
+});
+
+memberModal?.addEventListener('click', (e) => {
+  if (e.target === memberModal) {
+    closeMemberModal();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && memberModal?.classList.contains('open')) {
+    closeMemberModal();
+  }
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {

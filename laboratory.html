@@ -1,31 +1,468 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Khusi Pharmacy & Clinic - Laboratory</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khusi Diagnostic Laboratory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div class="top">Khusi Pharmacy & Clinic | Kharibot, Kapan | 7 AM - 9 PM</div>
+  <div class="top-bar">
+    <p>Open daily: 7:00 AM - 9:00 PM | Home sample collection available</p>
+  </div>
 
-<nav class="navbar">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="doctors.html">Doctors</a>
-<a href="laboratory.html">Laboratory</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="img/clinic logo.jpeg" alt="Khusi Clinic logo" class="logo">Khusi Clinic</a>
+      <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="teams.html">Teams</a>
+        <a href="laboratory.html" class="active">Laboratory</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="container">
-<h1>Laboratory</h1>
-<p>This is the Laboratory page for Khusi Pharmacy & Clinic.</p>
-</div>
-<footer>
-<p>Khusi Pharmacy & Clinic</p>
-<p>Phone: 014821017 | Email: pharmaandclinickhusi@gmail.com</p>
-</footer>
-<script src="js/main.js"></script>
+  <main>
+    <section class="section lab-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy anim-up">
+          <p class="eyebrow"><i class="fa-solid fa-microscope"></i> Advanced diagnostics</p>
+          <h1>Khusi Diagnostic Laboratory</h1>
+          <p>Accurate, reliable, and timely pathology and diagnostic testing for adults, children, and families — delivered with compassionate care.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#tests">Book Test</a>
+            <a class="btn btn-secondary" href="tel:+9779767223226">Call for Appointment</a>
+          </div>
+          <div class="hero-badges">
+            <span><i class="fa-solid fa-shield-heart"></i> Quality-focused testing</span>
+            <span><i class="fa-solid fa-clock"></i> Prompt reports</span>
+            <span><i class="fa-solid fa-house-medical"></i> Home sample pickup</span>
+          </div>
+        </div>
+
+        <div class="hero-card anim-up">
+          <div class="hero-card-top">
+            <div class="hero-card-icon"><i class="fa-solid fa-vials"></i></div>
+            <div>
+              <p class="hero-card-label">Trusted laboratory care</p>
+              <h3>Fast answers for healthier decisions</h3>
+            </div>
+          </div>
+          <ul class="hero-card-list">
+            <li><i class="fa-solid fa-check"></i> Professional collection and reporting</li>
+            <li><i class="fa-solid fa-check"></i> Clean, modern diagnostics workflow</li>
+            <li><i class="fa-solid fa-check"></i> Friendly support for every appointment</li>
+          </ul>
+          <a class="btn btn-secondary" href="https://wa.me/9779761279899?text=Hello%20Khusi%20Clinic%2C%20I%20would%20like%20to%20book%20a%20laboratory%20test." target="_blank" rel="noreferrer">Book via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading anim-up">
+          <p class="eyebrow">Why choose us</p>
+          <h2 class="section-title">Why Choose Our Laboratory</h2>
+          <p class="section-subtitle">A premium diagnostic experience designed around clarity, speed, and dependable medical outcomes.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card anim-up">
+            <div class="feature-icon"><i class="fa-solid fa-microscope"></i></div>
+            <h3>Accurate Testing</h3>
+            <p>Precision-led diagnostics backed by reliable sample handling and quality assurance.</p>
+          </article>
+          <article class="feature-card anim-up">
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Fast Reports</h3>
+            <p>Prompt processing and quick turnaround so your doctor can act early and confidently.</p>
+          </article>
+          <article class="feature-card anim-up">
+            <div class="feature-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h3>Experienced Technicians</h3>
+            <p>Skilled lab professionals ensure comfort, safety, and precise specimen collection.</p>
+          </article>
+          <article class="feature-card anim-up">
+            <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3>Affordable Pricing</h3>
+            <p>Accessible diagnostics with transparent charges and flexible care options.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading anim-up">
+          <p class="eyebrow">Trusted metrics</p>
+          <h2 class="section-title">Reliable results, every time</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card anim-up">
+            <strong data-count="65">0</strong>
+            <span>+ Laboratory Tests</span>
+          </div>
+          <div class="stat-card anim-up">
+            <strong data-count="5000">0</strong>
+            <span>+ Patients Served</span>
+          </div>
+          <div class="stat-card anim-up">
+            <strong data-count="99">0</strong>
+            <span>% Accurate Reports</span>
+          </div>
+          <div class="stat-card stat-card-accent anim-up">
+            <strong>Same-Day</strong>
+            <span>Results</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tests">
+      <div class="container">
+        <div class="section-heading anim-up">
+          <p class="eyebrow">Find the right test</p>
+          <h2 class="section-title">Search our laboratory tests</h2>
+          <p class="section-subtitle">Type a test name to filter through every category instantly.</p>
+          <div class="search-shell">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="labSearch" type="search" placeholder="Search tests like CBC, CRP, HIV, Vitamin D..." />
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-droplet"></i></p>
+                <h3>Blood Sugar &amp; Diabetes</h3>
+              </div>
+              <span class="category-count">4 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">BSF</span>
+              <span class="test-pill">BSPP</span>
+              <span class="test-pill">BSR</span>
+              <span class="test-pill">HbA1c</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-kidneys"></i></p>
+                <h3>Liver &amp; Kidney Function</h3>
+              </div>
+              <span class="category-count">6 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">LFT</span>
+              <span class="test-pill">RFT</span>
+              <span class="test-pill">Creatinine</span>
+              <span class="test-pill">Urea</span>
+              <span class="test-pill">Bilirubin</span>
+              <span class="test-pill">Uric Acid</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-heart-pulse"></i></p>
+                <h3>Heart &amp; Cardiac</h3>
+              </div>
+              <span class="category-count">7 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">Troponin I</span>
+              <span class="test-pill">CPK-MB</span>
+              <span class="test-pill">D-Dimer</span>
+              <span class="test-pill">Myoglobin</span>
+              <span class="test-pill">NT-proBNP</span>
+              <span class="test-pill">Lipid Profile</span>
+              <span class="test-pill">Cholesterol</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-brain"></i></p>
+                <h3>Thyroid &amp; Hormones</h3>
+              </div>
+              <span class="category-count">12 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">T3</span>
+              <span class="test-pill">T4</span>
+              <span class="test-pill">TSH</span>
+              <span class="test-pill">FSH</span>
+              <span class="test-pill">LH</span>
+              <span class="test-pill">Prolactin</span>
+              <span class="test-pill">Anti-TPO</span>
+              <span class="test-pill">Testosterone</span>
+              <span class="test-pill">Progesterone</span>
+              <span class="test-pill">AMH</span>
+              <span class="test-pill">Cortisol</span>
+              <span class="test-pill">PTH</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-flask"></i></p>
+                <h3>Hematology</h3>
+              </div>
+              <span class="category-count">7 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">CBC</span>
+              <span class="test-pill">ESR</span>
+              <span class="test-pill">Hemoglobin</span>
+              <span class="test-pill">PT</span>
+              <span class="test-pill">APTT</span>
+              <span class="test-pill">Reticulocyte Count</span>
+              <span class="test-pill">AEC</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-virus-covid"></i></p>
+                <h3>Infection &amp; Serology</h3>
+              </div>
+              <span class="category-count">15 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">HIV</span>
+              <span class="test-pill">HCV</span>
+              <span class="test-pill">HBsAg</span>
+              <span class="test-pill">VDRL</span>
+              <span class="test-pill">TPHA</span>
+              <span class="test-pill">Dengue</span>
+              <span class="test-pill">Widal</span>
+              <span class="test-pill">H. pylori Antigen</span>
+              <span class="test-pill">H. pylori Antibody</span>
+              <span class="test-pill">ELISA</span>
+              <span class="test-pill">Malaria Test</span>
+              <span class="test-pill">Brucella Test</span>
+              <span class="test-pill">Leptospira Test</span>
+              <span class="test-pill">Blood Culture</span>
+              <span class="test-pill">Pus Culture</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-filter"></i></p>
+                <h3>Urine Tests</h3>
+              </div>
+              <span class="category-count">3 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">Urine R/E</span>
+              <span class="test-pill">Urine C/S</span>
+              <span class="test-pill">ACR</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-toilet-paper"></i></p>
+                <h3>Stool Tests</h3>
+              </div>
+              <span class="category-count">3 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">Stool R/E</span>
+              <span class="test-pill">Stool C/S</span>
+              <span class="test-pill">Occult Blood Test</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-sun"></i></p>
+                <h3>Vitamins &amp; Minerals</h3>
+              </div>
+              <span class="category-count">6 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">Vitamin D3</span>
+              <span class="test-pill">Vitamin B12</span>
+              <span class="test-pill">Calcium</span>
+              <span class="test-pill">Folic Acid</span>
+              <span class="test-pill">Phosphorus</span>
+              <span class="test-pill">Magnesium</span>
+            </div>
+          </article>
+
+          <article class="category-card anim-up">
+            <div class="category-header">
+              <div>
+                <p class="category-icon"><i class="fa-solid fa-stethoscope"></i></p>
+                <h3>Special Tests</h3>
+              </div>
+              <span class="category-count">24 tests</span>
+            </div>
+            <div class="test-list">
+              <span class="test-pill">RA Factor Qualitative</span>
+              <span class="test-pill">RA Factor Quantitative</span>
+              <span class="test-pill">CRP Qualitative</span>
+              <span class="test-pill">CRP Quantitative</span>
+              <span class="test-pill">hs-CRP</span>
+              <span class="test-pill">PSA Total</span>
+              <span class="test-pill">PSA Free</span>
+              <span class="test-pill">Free/Total PSA Ratio</span>
+              <span class="test-pill">AFP</span>
+              <span class="test-pill">CEA</span>
+              <span class="test-pill">CA 125</span>
+              <span class="test-pill">CA 15-3</span>
+              <span class="test-pill">CA 19-9</span>
+              <span class="test-pill">CA 72-4</span>
+              <span class="test-pill">CA 27.29</span>
+              <span class="test-pill">HE4</span>
+              <span class="test-pill">ROMA Index</span>
+              <span class="test-pill">β-hCG</span>
+              <span class="test-pill">Calcitonin</span>
+              <span class="test-pill">Thyroglobulin</span>
+              <span class="test-pill">NSE</span>
+              <span class="test-pill">Semen Analysis</span>
+              <span class="test-pill">UPT</span>
+              <span class="test-pill">Amylase</span>
+              <span class="test-pill">Lipase</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading anim-up">
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title">Simple steps from booking to reports</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-step anim-up">
+            <strong>1. Registration</strong>
+            <p>Book your test online or by phone and share your preferred visit time.</p>
+          </div>
+          <div class="timeline-step anim-up">
+            <strong>2. Sample Collection</strong>
+            <p>Visit our lab or choose our home collection service for a hassle-free experience.</p>
+          </div>
+          <div class="timeline-step anim-up">
+            <strong>3. Laboratory Analysis</strong>
+            <p>Your sample is examined by experienced professionals using trusted protocols.</p>
+          </div>
+          <div class="timeline-step anim-up">
+            <strong>4. Report Delivery</strong>
+            <p>Receive your reports quickly through WhatsApp, email, or a direct clinic handover.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container collection-grid">
+        <div class="collection-copy anim-up">
+          <p class="eyebrow">Home sample collection</p>
+          <h2 class="section-title">Comfortable testing from your home</h2>
+          <p class="section-subtitle">We bring professional sample collection to your doorstep for routine investigations, follow-up tests, and family care.</p>
+          <ul class="hero-card-list">
+            <li><i class="fa-solid fa-check"></i> Safe sample handling by trained staff</li>
+            <li><i class="fa-solid fa-check"></i> Flexible slots for morning and evening visits</li>
+            <li><i class="fa-solid fa-check"></i> Easy communication and quick report sharing</li>
+          </ul>
+        </div>
+        <div class="collection-card anim-up">
+          <h3>Need a home visit?</h3>
+          <p>Call us to arrange sample pickup and receive the support you need without stepping out.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+9779767223226">Call now</a>
+            <a class="btn btn-secondary" href="https://wa.me/9779761279899?text=Hello%20Khusi%20Clinic%2C%20please%20arrange%20home%20sample%20collection." target="_blank" rel="noreferrer">WhatsApp us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading anim-up">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2 class="section-title">Common questions about our lab services</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item anim-up">
+            <button class="faq-question" type="button">How soon can I get my results? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+            <div class="faq-answer"><div><p>Most routine tests are reported quickly, and many are available on the same day depending on the test type and collection time.</p></div></div>
+          </article>
+          <article class="faq-item anim-up">
+            <button class="faq-question" type="button">Do you provide home sample collection? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+            <div class="faq-answer"><div><p>Yes. We offer convenient home sample pickup for selected tests and follow-up appointments.</p></div></div>
+          </article>
+          <article class="faq-item anim-up">
+            <button class="faq-question" type="button">Can I book a test without visiting the clinic? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+            <div class="faq-answer"><div><p>Absolutely. You can book your test by phone, WhatsApp, or by reaching out through our contact details.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel lab-cta anim-up">
+          <p class="eyebrow">Book your test today</p>
+          <h3>Need a trusted laboratory partner for your next checkup?</h3>
+          <p>Reach out to our team for appointments, home collection, or test recommendations tailored to your care plan.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+9779767223226">Call clinic</a>
+            <a class="btn btn-secondary" href="https://wa.me/9779761279899?text=Hello%20Khusi%20Clinic%2C%20I%20would%20like%20to%20book%20a%20test." target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+          </div>
+          <p class="small-contact">Phone: +977-9767223226 • Email: pharmaandclinickhusi@gmail.com • Address: Kapan, Kharibot, Kathmandu</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid anim-up">
+      <div class="footer-brand">
+        <h2>Khusi Clinic</h2>
+        <p>Your trusted partner for accessible healthcare, diagnostics, and supportive follow-up.</p>
+      </div>
+      <div class="footer-quick">
+        <p><strong>Quick links</strong></p>
+        <p><a href="index.html">Home</a> · <a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a> · <a href="teams.html">Teams</a></p>
+      </div>
+      <div class="footer-contact">
+        <p><strong>Contact</strong></p>
+        <p>Phone: <a href="tel:+9779767223226">+977 9767223226</a></p>
+        <p>Email: <a href="mailto:pharmaandclinickhusi@gmail.com">pharmaandclinickhusi@gmail.com</a></p>
+        <p>Address: Kapan, Kharibot, Kathmandu</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 Khusi Clinic. All rights reserved.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
